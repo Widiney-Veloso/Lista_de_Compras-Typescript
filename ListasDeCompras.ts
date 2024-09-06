@@ -27,7 +27,7 @@ function main(): void {
                 let quantidade: number = Number(prompt('Quantos você quer comprar: '))
                 let categoria: string | null = prompt('Qual a categoria do item: ')
                 if (nomeItem && categoria) {
-                    adicionarItem(nomeItem, quantidade, categoria)
+                    adicionarItem({nome: nomeItem, quantidade, categoria})
                 }
                 
                 break;

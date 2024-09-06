@@ -2,7 +2,7 @@ interface Item {
     nome: string; 
     categoria: string; 
     quantidade: number; 
-    comprado: boolean;
+    comprado?: boolean;
 }
 
 interface EditarItem {
@@ -21,22 +21,12 @@ let ListasDeCompras: Item[] = [
     { nome: 'Leite', categoria: 'Alimentos', quantidade: 3, comprado: false }
 ];
 
-export function adicionarItem(
-    nomeItem: string,
-    quantidade: number | string,
-    categoria: string
-): void {
-    const nomeDoItem = nomeItem;
-    const quantidadeDoItem = Number(quantidade as string);
-    const categoriaDoItem = categoria;
+export function adicionarItem(novoItem: Item): void {
 
-    if (nomeDoItem && quantidadeDoItem && categoriaDoItem) {
-        ListasDeCompras.push({
-            nome: nomeDoItem,
-            quantidade: quantidadeDoItem,
-            categoria: categoriaDoItem,
-            comprado: false
-        });
+
+    if (novoItem.nome && novoItem.quantidade && novoItem.categoria) {
+        novoItem.comprado = false;
+        ListasDeCompras.push(novoItem);
     } else {
         alert("Todos os campos são obrigatórios.")
 
